@@ -22,16 +22,16 @@ const MeetingSetup = ({setIsSetupComplete} : {setIsSetupComplete : (value: boole
     <div className='flex h-screen w-full flex-col items-center justify-center gap-3 text-white'>
       <h1 className='text-2xl font-bold'>Setup</h1>
       <VideoPreview/>
-      <div className='flex flex-col h-16 items-center justify-center gap-3'>
-        <label className='flex items-center justify-center gap-2 font-medium'>
+      <div className='flex h-16 flex-col items-center justify-center gap-3'>
+        <label className='flex items-center justify-center gap-2 font-medium mt-20'>
           <input
             type='checkbox'
             checked={isMicCamToggledOn}
             onChange={(e)=> setIsMicCamToggleOn(e.target.checked)}
           />
           Join with mic and camera off
-        </label>
         <DeviceSettings/>
+        </label>
         <Button className='rounded-md bg-green-400 px-4 py-2.5' onClick={()=> {
             call.join();
             setIsSetupComplete(true);
