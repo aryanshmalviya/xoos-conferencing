@@ -102,6 +102,7 @@ const MeetingTypeList = () => {
 
        />
      {!callDetails ? (
+          //@ts-ignore
            <MeetingModal
            isOpen={meetingState === "isScheduleMeeting"}
            onClose={()=> setMeetingState(undefined)}
