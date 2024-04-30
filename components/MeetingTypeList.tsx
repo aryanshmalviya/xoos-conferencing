@@ -10,6 +10,7 @@ import { useToast } from './ui/use-toast'
 import { Textarea } from './ui/textarea'
 
 import ReactDatePicker from 'react-datepicker'
+import { Input } from './ui/input'
 
 const MeetingTypeList = () => {
     const router = useRouter();
@@ -87,7 +88,7 @@ const MeetingTypeList = () => {
             img='/icons/recordings.svg'
             title='View Recordings'
             description='Check out your recordings'
-            handleClick= {()=> setMeetingState('isJoiningMeeting')}
+            handleClick= {()=>  router.push('/recordings')}
             className="bg-purple-1"
             
        />
@@ -156,6 +157,21 @@ const MeetingTypeList = () => {
           buttonText="Start meeting"
           handleClick={createMeeting}
        />
+
+          <MeetingModal
+               isOpen={meetingState === "isJoiningMeeting"}
+               onClose={()=> setMeetingState(undefined)}
+               title="Type the link here"
+               className="text-center"
+               buttonText="Join Meeting"
+               handleClick={()=> router.push(values.link)}
+          >
+               <Input
+                    placeholder='Meeting Link'
+                    className='border-none bg-dark-3 focus-visible:ring-0 focus-visible: ring-offset-0'
+                    onChange={(e) => setValues({...values, link: e.target.value})}
+               />
+          </MeetingModal>
     </section>
   )
 }
