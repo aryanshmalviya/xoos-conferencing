@@ -103,7 +103,7 @@ const MeetingTypeList = () => {
        />
      {!callDetails ? (
            <MeetingModal
-           buttonText=''
+           buttonText='Schedule Meeting'
            isOpen={meetingState === "isScheduleMeeting"}
            onClose={()=> setMeetingState(undefined)}
            title="Create Meeting"
